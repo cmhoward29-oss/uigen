@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm test:*)",
+      "Bash(mkdir -p ~/.npm-global)",
+      "Bash(npm config:*)",
+      "Bash(~/.zshrc)",
+      "Bash(source ~/.zshrc)",
+      "Bash(export PATH=~/.npm-global/bin:$PATH)",
+      "Bash(npm i:*)",
+      "Bash(claude --version)",
+      "mcp__playwright",
+      "Bash(npm run:*)",
+      "Bash(node -e \"console.log\\(require\\(''./node_modules/ai/package.json''\\).version\\); console.log\\(require\\(''./node_modules/@ai-sdk/anthropic/package.json''\\).version\\)\")",
+      "Bash(node -e \"console.log\\(require\\(''./node_modules/@ai-sdk/anthropic/package.json''\\).version\\)\")",
+      "Bash(curl -s -X POST http://localhost:3000/api/chat -H \"Content-Type: application/json\" -d '{\"\"\"\"messages\"\"\"\":[{\"\"\"\"role\"\"\"\":\"\"\"\"user\"\"\"\",\"\"\"\"content\"\"\"\":\"\"\"\"Create a pricing card component with a title, price, list of features, and a CTA button\"\"\"\"}],\"\"\"\"files\"\"\"\":{}}' --max-time 60)",
+      "Bash(curl -v -X POST http://localhost:3000/api/chat -H \"Content-Type: application/json\" -d '{\"\"\"\"messages\"\"\"\":[{\"\"\"\"role\"\"\"\":\"\"\"\"user\"\"\"\",\"\"\"\"content\"\"\"\":\"\"\"\"Create a pricing card component with a title, price, list of features, and a CTA button\"\"\"\"}],\"\"\"\"files\"\"\"\":{}}' --max-time 60)",
+      "Bash(grep -v \"^--$\")",
+      "Bash(node:*)",
+      "Bash(curl -s -X POST http://localhost:3000/api/chat -H \"Content-Type: application/json\" -d '{\"\"\"\"messages\"\"\"\":[{\"\"\"\"id\"\"\"\":\"\"\"\"1\"\"\"\",\"\"\"\"role\"\"\"\":\"\"\"\"user\"\"\"\",\"\"\"\"parts\"\"\"\":[{\"\"\"\"type\"\"\"\":\"\"\"\"text\"\"\"\",\"\"\"\"text\"\"\"\":\"\"\"\"Create a pricing card\"\"\"\"}],\"\"\"\"content\"\"\"\":\"\"\"\"Create a pricing card\"\"\"\"}],\"\"\"\"files\"\"\"\":{}}' --max-time 30)",
+      "Bash(curl -s -X POST http://localhost:3000/api/chat -H \"Content-Type: application/json\" -d '{\"\"\"\"messages\"\"\"\":[{\"\"\"\"id\"\"\"\":\"\"\"\"m1\"\"\"\",\"\"\"\"role\"\"\"\":\"\"\"\"user\"\"\"\",\"\"\"\"parts\"\"\"\":[{\"\"\"\"type\"\"\"\":\"\"\"\"text\"\"\"\",\"\"\"\"text\"\"\"\":\"\"\"\"Create a simple hello world button\"\"\"\"}],\"\"\"\"content\"\"\"\":\"\"\"\"Create a simple hello world button\"\"\"\"}],\"\"\"\"files\"\"\"\":{}}' --max-time 30)"
+    ],
+    "deny": []
+  }
+}

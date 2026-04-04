@@ -1,0 +1,96 @@
+[     132ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14537
+[     222ms] [ERROR] You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[   20472ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14537
+[   20560ms] [ERROR] You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[  345740ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  345936ms] [ERROR] ./src/app/api/chat/route.ts:3:1
+Export appendResponseMessages doesn't exist in target module
+  1 | import type { FileNode } from "@/lib/file-system";
+  2 | import { VirtualFileSystem } from "@/lib/file-system";
+> 3 | import { streamText, appendResponseMessages } from "ai";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { buildStrReplaceTool } from "@/lib/tools/str-replace";
+  5 | import { buildFileManagerTool } from "@/lib/tools/file-manager";
+  6 | import { prisma } from "@/lib/prisma";
+
+The export appendResponseMessages was not found in module [project]/node_modules/ai/dist/index.mjs [app-route] (ecmascript).
+Did you mean to import pruneMessages?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[  345938ms] [LOG] {file: Object} @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_next-devtools_index_a9cb0712.js:16058
+[  346037ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  346459ms] [ERROR] ./src/app/api/chat/route.ts:3:1
+Export appendResponseMessages doesn't exist in target module
+  1 | import type { FileNode } from "@/lib/file-system";
+  2 | import { VirtualFileSystem } from "@/lib/file-system";
+> 3 | import { streamText, appendResponseMessages } from "ai";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { buildStrReplaceTool } from "@/lib/tools/str-replace";
+  5 | import { buildFileManagerTool } from "@/lib/tools/file-manager";
+  6 | import { prisma } from "@/lib/prisma";
+
+The export appendResponseMessages was not found in module [project]/node_modules/ai/dist/index.mjs [app-route] (ecmascript).
+Did you mean to import pruneMessages?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[  346509ms] [ERROR] ./src/app/api/chat/route.ts:3:1
+Export appendResponseMessages doesn't exist in target module
+  1 | import type { FileNode } from "@/lib/file-system";
+  2 | import { VirtualFileSystem } from "@/lib/file-system";
+> 3 | import { streamText, appendResponseMessages } from "ai";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { buildStrReplaceTool } from "@/lib/tools/str-replace";
+  5 | import { buildFileManagerTool } from "@/lib/tools/file-manager";
+  6 | import { prisma } from "@/lib/prisma";
+
+The export appendResponseMessages was not found in module [project]/node_modules/ai/dist/index.mjs [app-route] (ecmascript).
+Did you mean to import pruneMessages?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[  346611ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  346641ms] [ERROR] ./src/app/api/chat/route.ts:3:1
+Export appendResponseMessages doesn't exist in target module
+  1 | import type { FileNode } from "@/lib/file-system";
+  2 | import { VirtualFileSystem } from "@/lib/file-system";
+> 3 | import { streamText, appendResponseMessages } from "ai";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { buildStrReplaceTool } from "@/lib/tools/str-replace";
+  5 | import { buildFileManagerTool } from "@/lib/tools/file-manager";
+  6 | import { prisma } from "@/lib/prisma";
+
+The export appendResponseMessages was not found in module [project]/node_modules/ai/dist/index.mjs [app-route] (ecmascript).
+Did you mean to import pruneMessages?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[  366281ms] [ERROR] ./src/app/api/chat/route.ts:3:1
+Export appendResponseMessages doesn't exist in target module
+  1 | import type { FileNode } from "@/lib/file-system";
+  2 | import { VirtualFileSystem } from "@/lib/file-system";
+> 3 | import { streamText, appendResponseMessages } from "ai";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { buildStrReplaceTool } from "@/lib/tools/str-replace";
+  5 | import { buildFileManagerTool } from "@/lib/tools/file-manager";
+  6 | import { prisma } from "@/lib/prisma";
+
+The export appendResponseMessages was not found in module [project]/node_modules/ai/dist/index.mjs [app-route] (ecmascript).
+Did you mean to import pruneMessages?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[  366316ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  370069ms] [ERROR] ./src/app/api/chat/route.ts:3:1
+Export appendResponseMessages doesn't exist in target module
+  1 | import type { FileNode } from "@/lib/file-system";
+  2 | import { VirtualFileSystem } from "@/lib/file-system";
+> 3 | import { streamText, appendResponseMessages } from "ai";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { buildStrReplaceTool } from "@/lib/tools/str-replace";
+  5 | import { buildFileManagerTool } from "@/lib/tools/file-manager";
+  6 | import { prisma } from "@/lib/prisma";
+
+The export appendResponseMessages was not found in module [project]/node_modules/ai/dist/index.mjs [app-route] (ecmascript).
+Did you mean to import pruneMessages?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_b0daae9a._.js:2359
+[  370111ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  402771ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  402836ms] [LOG] [Fast Refresh] done in 167ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5809
+[  479402ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  479511ms] [LOG] [Fast Refresh] done in 210ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5809
+[  479612ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  479653ms] [LOG] [Fast Refresh] done in 143ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5809
+[  497098ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5949
+[  497110ms] [LOG] [Fast Refresh] done in 114ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_cf1d9188._.js:5809
