@@ -41,6 +41,19 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
+          mcp_config: |
+            {
+              "mcpServers": {
+                "playwright": {
+                  "command": "npx",
+                  "args": ["@playwright/mcp@latest"],
+                  "env": {
+                    "PLAYWRIGHT_ALLOWED_ORIGINS": "http://localhost:3000;https://cdn.tailwindcss.com;https://esm.sh"
+                  }
+                }
+              }
+            }
+
           # This is an optional setting that allows Claude to read CI results on PRs
           additional_permissions: |
             actions: read
