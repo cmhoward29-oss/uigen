@@ -1,5 +1,5 @@
 import { test, expect, vi, afterEach } from "vitest";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MessageInput } from "../MessageInput";
 
@@ -63,9 +63,9 @@ test("calls handleSubmit when form is submitted", async () => {
 
   render(<MessageInput {...mockProps} />);
   
-  const form = screen.getByRole("textbox").closest("form")!;
-  fireEvent.submit(form);
-  
+  const submitButton = screen.getByRole("button");
+  await userEvent.click(submitButton);
+
   expect(handleSubmit).toHaveBeenCalledOnce();
 });
 
@@ -81,8 +81,8 @@ test("submits form when Enter is pressed without shift", async () => {
   render(<MessageInput {...mockProps} />);
   
   const textarea = screen.getByRole("textbox");
-  fireEvent.keyDown(textarea, { key: "Enter", shiftKey: false });
-  
+  await userEvent.type(textarea, "{Enter}");
+
   expect(handleSubmit).toHaveBeenCalledOnce();
 });
 
@@ -98,12 +98,12 @@ test("does not submit form when Enter is pressed with shift", async () => {
   render(<MessageInput {...mockProps} />);
   
   const textarea = screen.getByRole("textbox");
-  fireEvent.keyDown(textarea, { key: "Enter", shiftKey: true });
-  
+  await userEvent.type(textarea, "{Shift>}{Enter}{/Shift}");
+
   expect(handleSubmit).not.toHaveBeenCalled();
 });
 
-test("disables textarea when isLoading is true", () => {
+test("allows typing in textarea when isLoading is true", () => {
   const mockProps = {
     input: "",
     handleInputChange: vi.fn(),
@@ -112,9 +112,9 @@ test("disables textarea when isLoading is true", () => {
   };
 
   render(<MessageInput {...mockProps} />);
-  
+
   const textarea = screen.getByRole("textbox");
-  expect(textarea).toHaveProperty("disabled", true);
+  expect(textarea).toHaveProperty("disabled", false);
 });
 
 test("disables submit button when isLoading is true", () => {
@@ -201,7 +201,7 @@ test("applies correct CSS classes based on loading state", () => {
   expect(submitButton.className).toContain("disabled:opacity-40");
 });
 
-test("applies pulse animation to send icon when loading", () => {
+test("shows spinner icon when loading and send icon when not loading", () => {
   const { rerender } = render(
     <MessageInput
       input="Test"
