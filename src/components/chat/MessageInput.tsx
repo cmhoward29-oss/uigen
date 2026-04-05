@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, FormEvent, KeyboardEvent, useRef } from "react";
+import { ChangeEvent, FormEvent, KeyboardEvent, useEffect, useRef } from "react";
 import { Loader2, Send } from "lucide-react";
 
 interface MessageInputProps {
@@ -17,6 +17,14 @@ export function MessageInput({
   isLoading,
 }: MessageInputProps) {
   const isComposingRef = useRef(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  }, [input]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey && !isComposingRef.current) {
@@ -32,6 +40,7 @@ export function MessageInput({
     <form onSubmit={handleSubmit} className="relative p-4 bg-white border-t border-neutral-200/60">
       <div className="relative max-w-4xl mx-auto">
         <textarea
+          ref={textareaRef}
           value={input}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
