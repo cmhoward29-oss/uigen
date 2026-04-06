@@ -11,16 +11,17 @@ import {
   useCallback,
 } from "react";
 import { useChat as useAIChat } from "@ai-sdk/react";
+import type { Message } from "ai";
 import { useFileSystem } from "./file-system-context";
 import { setHasAnonWork } from "@/lib/anon-work-tracker";
 
 interface ChatContextProps {
   projectId?: string;
-  initialMessages?: any[];
+  initialMessages?: Message[];
 }
 
 interface ChatContextType {
-  messages: any[];
+  messages: Message[];
   input: string;
   handleInputChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;

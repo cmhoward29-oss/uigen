@@ -513,5 +513,3 @@ export class VirtualFileSystem {
     this.files.set("/", this.root);
   }
 }
-
-export const fileSystem = new VirtualFileSystem();

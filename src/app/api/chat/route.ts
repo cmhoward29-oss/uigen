@@ -36,7 +36,7 @@ export async function POST(req: Request) {
   }
 
   const { messages, files, projectId } = parsed.data as {
-    messages: any[];
+    messages: Record<string, unknown>[];
     files: Record<string, FileNode> | undefined;
     projectId: string | undefined;
   };

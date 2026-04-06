@@ -45,13 +45,14 @@ export function HeaderActions({ user, projectId }: HeaderActionsProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [initialLoading, setInitialLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [projectsError, setProjectsError] = useState<string | null>(null);
 
   // Load projects initially
   useEffect(() => {
     if (user && projectId) {
       getProjects()
         .then(setProjects)
-        .catch(console.error)
+        .catch(() => setProjectsError("Failed to load projects"))
         .finally(() => setInitialLoading(false));
     }
   }, [user, projectId]);
@@ -59,7 +60,9 @@ export function HeaderActions({ user, projectId }: HeaderActionsProps) {
   // Refresh projects when popover opens
   useEffect(() => {
     if (user && projectsOpen) {
-      getProjects().then(setProjects).catch(console.error);
+      getProjects()
+        .then(setProjects)
+        .catch(() => setProjectsError("Failed to load projects"));
     }
   }, [projectsOpen, user]);
 
@@ -131,6 +134,9 @@ export function HeaderActions({ user, projectId }: HeaderActionsProps) {
                 onValueChange={setSearchQuery}
               />
               <CommandList>
+                {projectsError && (
+                  <CommandEmpty className="text-red-500">{projectsError}</CommandEmpty>
+                )}
                 <CommandEmpty>No projects found.</CommandEmpty>
                 <CommandGroup>
                   {filteredProjects.map((project) => (
