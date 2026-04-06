@@ -16,7 +16,10 @@ export function PreviewFrame() {
   const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   useEffect(() => {
-    const updatePreview = () => {
+    let cancelled = false;
+
+    const timer = setTimeout(async () => {
+      if (cancelled) return;
       try {
         const files = getAllFiles();
 
@@ -40,7 +43,7 @@ export function PreviewFrame() {
           const found = possibleEntries.find((path) => files.has(path));
           if (found) {
             foundEntryPoint = found;
-            setEntryPoint(found);
+            if (!cancelled) setEntryPoint(found);
           } else if (files.size > 0) {
             // Just use the first .jsx/.tsx file found
             const firstJSX = Array.from(files.keys()).find(
@@ -48,33 +51,32 @@ export function PreviewFrame() {
             );
             if (firstJSX) {
               foundEntryPoint = firstJSX;
-              setEntryPoint(firstJSX);
+              if (!cancelled) setEntryPoint(firstJSX);
             }
           }
         }
 
         if (files.size === 0) {
-          if (isFirstLoad) {
-            setError("firstLoad");
-          } else {
-            setError("No files to preview");
-          }
+          if (!cancelled) setError(isFirstLoad ? "firstLoad" : "No files to preview");
           return;
         }
 
         // We have files, so it's no longer the first load
-        if (isFirstLoad) {
+        if (isFirstLoad && !cancelled) {
           setIsFirstLoad(false);
         }
 
         if (!foundEntryPoint || !files.has(foundEntryPoint)) {
-          setError(
-            "No React component found. Create an App.jsx or index.jsx file to get started."
-          );
+          if (!cancelled)
+            setError(
+              "No React component found. Create an App.jsx or index.jsx file to get started."
+            );
           return;
         }
 
-        const { importMap, styles, errors } = createImportMap(files);
+        const { importMap, styles, errors } = await createImportMap(files);
+        if (cancelled) return;
+
         const previewHTML = createPreviewHTML(foundEntryPoint, importMap, styles, errors);
 
         if (iframeRef.current) {
@@ -90,12 +92,17 @@ export function PreviewFrame() {
           setError(null);
         }
       } catch (err) {
-        console.error("Preview error:", err);
-        setError(err instanceof Error ? err.message : "Unknown preview error");
+        if (!cancelled) {
+          console.error("Preview error:", err);
+          setError(err instanceof Error ? err.message : "Unknown preview error");
+        }
       }
-    };
+    }, 300);
 
-    updatePreview();
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
   }, [refreshTrigger, getAllFiles, entryPoint, error, isFirstLoad]);
 
   if (error) {
