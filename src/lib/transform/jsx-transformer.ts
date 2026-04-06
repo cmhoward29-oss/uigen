@@ -1,4 +1,10 @@
-import * as Babel from "@babel/standalone";
+let _babel: typeof import("@babel/standalone") | null = null;
+async function getBabel() {
+  if (!_babel) {
+    _babel = await import("@babel/standalone");
+  }
+  return _babel;
+}
 
 export interface TransformResult {
   code: string;
@@ -20,12 +26,13 @@ export { ${componentName} };
 }
 
 
-export function transformJSX(
+export async function transformJSX(
   code: string,
   filename: string,
   existingFiles: Set<string>
-): TransformResult {
+): Promise<TransformResult> {
   try {
+    const Babel = await getBabel();
     const isTypeScript = filename.endsWith(".ts") || filename.endsWith(".tsx");
 
     // Pre-process imports to handle missing files
@@ -89,7 +96,7 @@ export interface ImportMapResult {
   errors: Array<{ path: string; error: string }>;
 }
 
-export function createImportMap(files: Map<string, string>): ImportMapResult {
+export async function createImportMap(files: Map<string, string>): Promise<ImportMapResult> {
   const imports: Record<string, string> = {
     react: "https://esm.sh/react@19",
     "react-dom": "https://esm.sh/react-dom@19",
@@ -114,7 +121,7 @@ export function createImportMap(files: Map<string, string>): ImportMapResult {
       path.endsWith(".ts") ||
       path.endsWith(".tsx")
     ) {
-      const { code, error, missingImports, cssImports } = transformJSX(
+      const { code, error, missingImports, cssImports } = await transformJSX(
         content,
         path,
         existingFiles

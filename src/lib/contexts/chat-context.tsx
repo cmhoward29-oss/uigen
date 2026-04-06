@@ -5,6 +5,7 @@ import {
   useContext,
   ReactNode,
   useEffect,
+  useMemo,
   useRef,
   useState,
   useCallback,
@@ -96,16 +97,13 @@ export function ChatProvider({
     }
   }, [messages, fileSystem, projectId]);
 
+  const contextValue = useMemo(
+    () => ({ messages, input, handleInputChange, handleSubmit, status }),
+    [messages, input, handleInputChange, handleSubmit, status]
+  );
+
   return (
-    <ChatContext.Provider
-      value={{
-        messages,
-        input,
-        handleInputChange,
-        handleSubmit,
-        status,
-      }}
-    >
+    <ChatContext.Provider value={contextValue}>
       {children}
     </ChatContext.Provider>
   );
