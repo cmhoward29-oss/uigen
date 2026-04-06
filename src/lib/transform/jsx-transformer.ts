@@ -462,7 +462,16 @@ export function createPreviewHTML(
       } catch (error) {
         console.error('Failed to load app:', error);
         console.error('Import map:', ${JSON.stringify(importMap)});
-        document.getElementById('root').innerHTML = '<div class="error-boundary"><h2>Failed to load app</h2><pre>' + error.toString() + '</pre></div>';
+        const root = document.getElementById('root');
+        const wrapper = document.createElement('div');
+        wrapper.className = 'error-boundary';
+        const heading = document.createElement('h2');
+        heading.textContent = 'Failed to load app';
+        const pre = document.createElement('pre');
+        pre.textContent = error.toString();
+        wrapper.appendChild(heading);
+        wrapper.appendChild(pre);
+        root.appendChild(wrapper);
       }
     }
 

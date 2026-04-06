@@ -6,7 +6,7 @@ export async function middleware(request: NextRequest) {
   const session = await verifySession(request);
 
   // Protected routes that require authentication
-  const protectedPaths = ["/api/projects", "/api/filesystem"];
+  const protectedPaths = ["/api/projects", "/api/filesystem", "/api/chat"];
   const isProtectedPath = protectedPaths.some((path) =>
     request.nextUrl.pathname.startsWith(path)
   );
@@ -17,6 +17,10 @@ export async function middleware(request: NextRequest) {
       { status: 401 }
     );
   }
+
+  // Note: project ownership (userId check) is enforced at the route/server-action
+  // level (e.g. get-project.ts, /api/chat) rather than here, since middleware
+  // runs before DB access and cannot safely make DB calls.
 
   return NextResponse.next();
 }
